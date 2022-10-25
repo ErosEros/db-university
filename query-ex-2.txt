@@ -31,7 +31,6 @@ GROUP BY `department_id`
 
 
 
-
 QUERY 2 : JOIN
 
 1. Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
