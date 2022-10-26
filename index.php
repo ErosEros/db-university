@@ -11,6 +11,23 @@ if( $connessione && $connessione->connect_error) {
     echo "Connection Failed: " . $connessione->connect_error;
     die();
 }
-    echo "Connection OK!";
+    // echo "Connection OK!";
 
+    
+    $sql = "SELECT `name`, `surname`, `office_address` FROM `teachers`"; 
+    $result = $connessione->query($sql);
+
+    if($result && $result->num_rows > 0) {
+        // uso il ciclo while per farmi restituire tutti i records in ordine
+        while($teachers = $result->fetch_assoc()) {
+        echo "<div>"."Name: ".$teachers['name']." "."Surname: ".$teachers['surname']." "."Office Address: ".$teachers['office_address']." ";
+        }
+    }elseif($result) {
+        echo "0 results";
+    }
+
+
+
+
+$connessione->close();
 ?>
